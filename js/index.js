@@ -4,31 +4,19 @@ const allCategory = async () => {
     );
     const data = await response.json();
 
-    // const allData=data.data;
-    // console.log(allData);
+   
     const tabContainer = document.getElementById("tab-container")
     data.data.forEach((category) => {
         const div = document.createElement("div");
         div.innerHTML = `
-       <button onclick="handleLoadVideos('${category.category_id}')" class="btn px-5 normal-case">${category.category}</button>
+       <button onclick="handleLoadVideos('${category.category_id}')" class="btn px-5 focus:bg-red-600 focus:text-white normal-case">${category.category}</button>
        `;
-        div.addEventListener("click", () => {
-            const allButtons = tabContainer.querySelectorAll("div");
-            allButtons.forEach((btn) => {
-                // btn.classList.remove("active");
-                div.classList.add("active");
-            });
-            // div.classList.add("active");
 
-        });
 
         tabContainer.appendChild(div);
 
     });
-    const allButton = tabContainer.querySelector("div button");
-    if (allButton) {
-        allButton.classList.add("active");
-    }
+
 };
 
 const handleLoadVideos = async (categoryId) => {
@@ -37,7 +25,7 @@ const handleLoadVideos = async (categoryId) => {
     https://openapi.programming-hero.com/api/videos/category/${categoryId}`
     );
     const data = await response.json();
-    // console.log(data.data);
+   
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = " ";
 
@@ -59,7 +47,7 @@ const handleLoadVideos = async (categoryId) => {
          </div>
          <div>
             <h4 class="card-title">${videoData?.title}</h4>
-            <p>${videoData?.authors[0].profile_name}</p>
+            <p>${videoData?.authors[0].profile_name} <span>  </span> ${videoData?.authors[0].verified?`${videoData?.authors[0].verified}<i class="fa-solid fa-circle-check text-blue-600"></i>`:''} </p>
             <h6>${videoData?.others.views} views</h6>
 
 

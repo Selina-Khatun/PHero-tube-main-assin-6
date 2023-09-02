@@ -15,6 +15,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+        <script src="https://kit.fontawesome.com/8acf9ee4cf.js" crossorigin="anonymous"></script>
+
+
     <!-- tailwind custom color -->
     <script>
         tailwind.config = {
@@ -35,11 +38,11 @@
     </script>
 </head>
 
-<body class="container">
+<body >
     <header>
         <nav>
-            <div class="navbar bg-base-100">
-                <div class="navbar-start gap-x-16 ">
+            <div class="navbar bg-base-100 border-b-2 w-[90%] mx-auto my-6">
+                <div class="navbar-start gap-x-16 my-6">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -50,7 +53,7 @@
                         </label>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <button class="btn normal-case">Sort by view</button>
+                            <a href="http://127.0.0.1:5500/index.html"><button class="btn normal-case">Sort by view</button></a>
                             <button class="btn bg-[#FF1F3D] text-white normal-case cursor-pointer">Blog</button>
                         </ul>
                     </div>
@@ -59,11 +62,11 @@
                 </div>
                 <div class="navbar-center hidden lg:flex">
 
-                    <button class="btn normal-case">Sort by view</button>
+                    <button class="btn normal-case"id="sortButton">Sort by view</button>
                 </div>
-                <div class="navbar-end hidden lg:flex">
-                    <button class="btn bg-[#FF1F3D] text-white normal-case cursor-pointer">Blog</button>
-
+                <div class="navbar-end hidden lg:flex ">
+                    <a href="http://127.0.0.1:5500/blog.html"><button class="btn bg-[#FF1F3D] text-white normal-case cursor-pointer">Blog</button>
+                    </a>
                 </div>
 
                
@@ -73,25 +76,25 @@
 
 
     </header>
-    <main>
-        <div class="tab-container w-full">
-            <div class="tabs w-[90%] mx-auto text-center flex justify-center gap-5" id="tab-container">
+    <main class="w-[90%] mx-auto">
+        <div class="tab-container w-full my-6">
+            <div class="tabs w-[100%] mx-auto text-center flex justify-center gap-5" id="tab-container">
 
             </div>
         </div>
 
         <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-3 gap-7" id="card-container">
-<!--   ${ data.time? ` <div> ${data.time}</div>` : '' } -->
+
            
 
 
 
-            
+      <div id="drawing-container" class="drawing-container"></div>      
 
         </div>
 
     </main>
-
+    
     <script src="./js/index.js"></script>
 </body>
 
